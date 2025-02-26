@@ -1,9 +1,9 @@
 import express from "express";
 import cors from "cors";
-import DB from "./models/controller/DB";
+import DB from "./controllers/DB.js";
 
 const app = express();
-const port = 606;
+const port = 666;
 
 const connectDb = (DB)
 
