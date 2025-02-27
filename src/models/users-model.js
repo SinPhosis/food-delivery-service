@@ -4,21 +4,21 @@ import mongoose from "mongoose";
 // collection => table
 
 const usersSchema = new mongoose.Schema({
-  email: { type: String, require: true },
-  password: { type: String, require: true },
-  phoneNumber: { type: String, require: true },
-  address: { type: String, require: true },
+  email: { type: String, required: true },
+  password: { type: String, required: true },
+  phoneNumber: { type: String, required: true },
+  address: { type: String, required: true },
   orderedFoods: [
     {
       name: String,
       type: {
         type: { type: String },
       },
-      require: false,
+      
     },
   ],
-  isVerified: { type: Boolean, require: false, default: false},
-  createdAt : { type: Date, default: Date.now },
+  isVerified: { type: Boolean,  default: false },
+  createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 });
 

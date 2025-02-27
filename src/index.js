@@ -1,22 +1,35 @@
 import express from "express";
 import cors from "cors";
-import DB from "./controllers/DB.js";
+import { orderRouter } from "./routes/Order.routes.js";
+import { categoryRouter } from "./routes/Category.routes.js";
+import { userRouter } from "./routes/User-routes.js";
+import { foodRouter } from "./routes/Food.routes.js";
+import mongoose from "mongoose";
+import dotenv from "dotenv"
+
+dotenv.config();
+const connectDb = async () => {
+try {
+    await mongoose.connect(process.env.DATABASE_CONNECTION_URL);
+    console.log("Successfully connected");
+  } catch (error) {
+    console.log("Error!", error);
+  }
+};
+
+connectDb();
 
 const app = express();
 const port = 666;
-
-const connectDb = (DB)
-
-connectDb();
 
 app.use(express.json());
 
 app.use(cors());
 
-app.use("/", ( req, res ) => {
-    res.send("Test");
-});
-
-app.listen(port, () => {
+app.use("/food", foodRouter),
+  app.use("/order", orderRouter),
+  app.use("/user", userRouter),
+  app.use("/category", categoryRouter),
+  app.listen(port, () => {
     console.log(`Example app listening on port http://localhost:${port}`);
   });
