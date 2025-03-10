@@ -1,12 +1,11 @@
 import { Router } from "express";
-import { deleteUser } from "../user_data/delete-user.js";
-import { updatedUsers } from "../user_data/edit-user.js";
-import { GetUsers } from "../user_data/get-user.js";
-import { createUser } from "../controllers/users/CreateUser.controller.js";
-
+import { deleteUser } from "../controllers/user-data/delete-user.js";
+import { createUser } from "../controllers/user-data/create-user.js";
+import { updatedUsers } from "../controllers/user-data/edit-user.js";
+import { getUsers } from "../controllers/user-data/get-user.js";
 export const userRouter = Router();
 
-userRouter.get("/", GetUsers);
+userRouter.get("/", getUsers);
 userRouter.delete("/", deleteUser);
 userRouter.put("/", updatedUsers);
 userRouter.post("/", createUser);
