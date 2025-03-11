@@ -11,6 +11,6 @@ export const createUser = async (req, res) => {
     res.status(201).send({ success: true, data: users });
   } catch (error) {
     console.error("Error creating user:", error);
-    res.send(500).json({ success: false, message: "Error creating user" });
+    res.status(500).json({ success: false, message: "Error creating user" });
   }
 };

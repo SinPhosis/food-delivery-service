@@ -1,15 +1,15 @@
 import express from "express";
 import cors from "cors";
-import { orderRouter } from "./routes/Order.routes.js";
-import { categoryRouter } from "./routes/Category.routes.js";
-import { foodRouter } from "./routes/Food.routes.js";
 import { userRouter } from "./routes/user-routes.js";
 import { connectDb } from "./mongo-connection.js";
+import { foodRouter } from "./routes/food.routes.js";
+import { orderRouter } from "./routes/order.routes.js";
+import { categoryRouter } from "./routes/category.routes.js";
 
 connectDb();
 
 const app = express();
-const port = 600;
+const port = 700;
 
 app.use(express.json());
 

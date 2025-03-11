@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { deleteUser } from "../controllers/user-data/delete-user.js";
 import { createUser } from "../controllers/user-data/create-user.js";
-import { updatedUsers } from "../controllers/user-data/edit-user.js";
+import { updatedUsers } from "../controllers/user-data/update-user.js";
 import { getUsers } from "../controllers/user-data/get-user.js";
 import { getAllUser } from "../controllers/user-data/get-all-user.js";
 export const userRouter = Router();
