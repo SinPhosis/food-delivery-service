@@ -3,7 +3,7 @@ import { UsersModel } from "../models/users-model.js";
 import mongoose from "mongoose";
 
 export const validateUser = async (req, res, next) => {
-  const { id } = req.body;
+  const { id } = req.params
   
   try {
     if (!id || !ObjectId.isValid(id)) {

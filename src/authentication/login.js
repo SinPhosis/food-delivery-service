@@ -5,9 +5,11 @@ export const login = async (req, res) => {
   try {
     if (!email) {
       return res
-        .status(500)
-        .json({ success: false, message: "This email is not registered" });
-    };
+        .status(400)
+        .json({ success: false, message: "Please enter your email!" });
+    } else if (email !== email) {
+      return res.status(400).json({ success: false, message: "This email does not match."})
+    } 
     const hashedPassword = await bcrypt.hash(password, 10);
     bcrypt.compareSync(password, hashedPassword);
 
