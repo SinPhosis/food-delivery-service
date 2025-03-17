@@ -1,19 +1,23 @@
 import { Food } from "../../models/food.model.js";
 
 export const getFood = async (req, res) => {
-  try {
-    const getFood = await Food.find();
+  const foodData = req.body;
+  const { id } = req.params;
 
-    if (!getFood || getFood.length === 0) {
+  try {
+    const getFoodById = await Food.findById(id, foodData);
+
+    if (!getFoodById) {
       return res.status(404).json({
         success: false,
-        message: "No food found",
+        message: "Food not found",
       });
     }
-
-    res.status(200).json({ success: true, data: getFood });
+    res.status(200).json({ success: true, data: getFoodById });
   } catch (error) {
     console.error("Error while getting food: ", error);
-    res.status(500).json({ success: false, message: "Error while food" });
+    res
+      .status(500)
+      .json({ success: false, message: "Error while getting food" });
   }
 };

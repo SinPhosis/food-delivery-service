@@ -7,7 +7,7 @@ export const createCategory = async (req, res) => {
       categoryName: categoryName,
     });
     categories.save();
-    res.status(201).send({ success: true, data: categories });
+    res.status(201).json({ success: true, data: categories });
   } catch (error) {
     console.error("Error creating categories:", error);
     res

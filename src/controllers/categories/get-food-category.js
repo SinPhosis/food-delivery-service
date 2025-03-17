@@ -1,10 +1,12 @@
 import { Categories } from "../../models/categories.model.js";
 
 export const getFoodCategory = async (req, res) => {
-  try {
-    const getFoodCategory = await Categories.find();
+  const { id } = req.params;
 
-    if (!getFoodCategory || getFoodCategory.length === 0) {
+  try {
+    const getFoodCategory = await Categories.findById(id);
+
+    if (!getFoodCategory) {
       return res.status(404).json({
         success: false,
         message: "No food category found",

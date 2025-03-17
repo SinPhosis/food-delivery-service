@@ -2,16 +2,12 @@ import { UsersModel } from "../../models/users-model.js";
 
 export const updatedUsers = async (req, res) => {
   const userData = req.body;
-  const {id} = req.params
-  console.log(id);
-  
+  const { id } = req.params;
 
   try {
-    const updatedUser = await UsersModel.findByIdAndUpdate(
-      id,
-      userData,
-      { new: true }
-    );
+    const updatedUser = await UsersModel.findByIdAndUpdate(id, userData, {
+      new: true,
+    });
 
     if (!updatedUser) {
       return res.status(404).json({

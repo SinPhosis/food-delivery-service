@@ -1,26 +1,41 @@
-import { UsersModel } from "../models/users-model";
-import bcrypt from bcrypt;
+import { UsersModel } from "../models/users-model.js";
+import bcrypt from "bcrypt";
+
 export const signUp = async (req, res) => {
-  const {  password, email } = req.body;
+  const bcrypt = require("bcrypt");
+  const { password, email } = req.body;
+
+  if (!email || !password) {
+    return res
+      .status(400)
+      .json({ success: false, message: "Email and password are required." });
+  }
+
   try {
     const existingEmail = await UsersModel.findOne({ email });
     if (existingEmail) {
       return res
-        .status(500)
-        .json({ success: false, message: "This email is already used" });
-    };
+        .status(400)
+        .json({ success: false, message: "This email is already used." });
+    }
+
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const newUser = new UsersModel({
-        email,
-        password : hashedPassword
+      email,
+      password: hashedPassword,
     });
 
     await newUser.save();
 
-    res.status(201).json({ success: true, message: "Successfully created a user." });
+    res
+      .status(201)
+      .json({ success: true, message: "Successfully created a user." });
   } catch (error) {
     console.error("Error while signing up users: ", error);
-    res.status(500).json({ success: false, message: "Error while signing up users" });
+    res.status(500).json({
+      success: false,
+      message: "An error occurred while signing up users.",
+    });
   }
 };

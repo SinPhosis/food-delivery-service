@@ -23,4 +23,3 @@ export const updatedFood = async (req, res) => {
       .json({ success: false, message: "Error while updating category" });
   }
 };
-    

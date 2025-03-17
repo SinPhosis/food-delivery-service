@@ -8,6 +8,6 @@ export const userRouter = Router();
 
 userRouter.get("/:id", getUsers);
 userRouter.get("/", getAllUser)
-userRouter.delete("/", deleteUser);
+userRouter.delete("/:id", deleteUser);
 userRouter.put("/:id", updatedUsers);
 userRouter.post("/", createUser);

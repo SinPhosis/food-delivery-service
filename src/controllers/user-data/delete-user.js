@@ -3,7 +3,6 @@ import { UsersModel } from "../../models/users-model.js";
 export const deleteUser = async (req, res) => {
   const userData = req.body;
   const { id } = req.params;
-  console.log(id);
 
   try {
     const deletedUser = await UsersModel.findByIdAndDelete(id, userData, {

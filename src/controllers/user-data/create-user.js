@@ -8,7 +8,7 @@ export const createUser = async (req, res) => {
       email: email,
     });
     users.save();
-    res.status(201).send({ success: true, data: users });
+    res.status(201).json({ success: true, data: users });
   } catch (error) {
     console.error("Error creating user:", error);
     res.status(500).json({ success: false, message: "Error creating user" });

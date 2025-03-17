@@ -19,7 +19,7 @@ export const deleteFood = async (req, res) => {
       .status(200)
       .json({ success: true, message: "Successfully deleted food" });
   } catch (error) {
-    console.error("Error deleting food", error);
+    console.error("Error deleting food:", error);
     res.status(500).json({ success: false, message: "Error deleting food" });
   }
 };

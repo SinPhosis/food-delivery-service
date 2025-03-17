@@ -8,7 +8,9 @@ export const updatedCategory = async (req, res) => {
     const updatedCategory = await Categories.findByIdAndUpdate(
       id,
       categoryData,
-      { new: true }
+      {
+        new: true,
+      }
     );
 
     if (!updatedCategory) {
