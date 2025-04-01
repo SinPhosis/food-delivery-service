@@ -1,4 +1,4 @@
-import { Categories } from "../../models/categories.model.js";
+import { Categories } from "../../models/categories-model.js";
 
 export const deleteCategory = async (req, res) => {
   const categoryData = req.body;
