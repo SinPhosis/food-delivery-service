@@ -1,4 +1,3 @@
-import { UsersModel } from "../models/users-model.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
@@ -21,7 +20,6 @@ export const login = async (req, res) => {
         message: "Invalid email or password.",
       });
     }
-    
 
     const isPasswordValid = bcrypt.compareSync(password, user.password);
     if (!isPasswordValid) {
