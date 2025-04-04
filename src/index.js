@@ -10,7 +10,7 @@ import { categoryRouter } from "./routes/category-routes.js";
 connectDb();
 
 const app = express();
-const port = 2000;
+const port = 5000;
 
 app.use(express.json());
 
