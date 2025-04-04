@@ -1,11 +1,12 @@
 import express from "express";
 import cors from "cors";
-import { userRouter } from "./src/routes/user-routes.js";
 import { loginRouter } from "./src/routes/login-routes.js";
 import { connectDb } from "./src/mongo-connection.js";
 import { foodRouter } from "./src/routes/food-routes.js";
 import { orderRouter } from "./src/routes/order-routes.js";
 import { categoryRouter } from "./src/routes/category-routes.js";
+import { userRouter } from "./src/routes/user-routes.js";
+
 
 connectDb();
 
