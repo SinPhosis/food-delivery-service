@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import { UsersModel } from "../../../models/users-model.js";
+import { UsersModel } from "../../../models/users_model.js";
 import jsonwebtoken from "jsonwebtoken";
 import "dotenv/config";
 export const checkPassword = async (req, res) => {

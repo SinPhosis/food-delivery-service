@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import { UsersModel } from "../../models/users-model.js";
+import { UsersModel } from "../../models/users_model.js";
 import mongoose from "mongoose";
 
 export const validateUser = async (req, res, next) => {

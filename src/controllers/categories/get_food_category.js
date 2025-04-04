@@ -1,5 +1,5 @@
-import { Categories } from "../../models/categories-model.js";
-import { Food } from "../../models/food-model.js";
+import { Categories } from "../../models/categories_model.js";
+import { Food } from "../../models/food_model.js";
 
 export const getFoodCategory = async (req, res) => {
   const { id } = req.params; 
